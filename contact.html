@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact | Zenyte Technologies</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0b0f1a;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0b0f1a;
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .logo-link img {
+      height: 65px;
+      cursor: pointer;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .service-strip {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px;
+      background-color: #020617;
+      border-bottom: 1px solid #1f2937;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .service-strip a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .service-strip a:hover {
+      color: #96EDFF;
+      text-shadow: 0 0 8px rgba(150, 237, 255, 0.6);
+    }
+
+    .contact-section {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .contact-section h1 {
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      color: #cbd5e1;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #1f2937;
+      background-color: #020617;
+      color: white;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #96EDFF;
+      box-shadow: 0 0 6px rgba(150, 237, 255, 0.4);
+    }
+
+    .contact-form button {
+      background-color: #96EDFF;
+      color: #0b0f1a;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #7fd6e6;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="Images/Logo.png" alt="Zenyte Logo">
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="service-strip">
+    <a href="network.html">Network</a>
+    <a href="enterprise-setup.html">Enterprise Set-up</a>
+    <a href="cloud-services.html">Cloud Services</a>
+    <a href="cyber-security.html">Cyber Security</a>
+    <a href="computer-repair.html">Computer Repair</a>
+    <a href="infrastructure-consulting.html">Infrastructure Consulting</a>
+  </div>
+
+  <section class="contact-section">
+    <h1>Contact Us</h1>
+    <p>Have a question or need support? Reach out and we’ll get back to you.</p>
+
+    <form class="contact-form">
+      <label>Name</label>
+      <input type="text" placeholder="Your Name">
+
+      <label>Email</label>
+      <input type="email" placeholder="Your Email">
+
+      <label>Message</label>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section class="footer">
+    <p>© 2026 Zenyte Technologies</p>
+  </section>
+
+</body>
+</html>
