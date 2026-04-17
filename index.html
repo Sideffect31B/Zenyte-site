@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zenyte Technologies</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -11,25 +17,39 @@
       color: white;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
       padding: 20px 40px;
       background-color: #0b0f1a;
       border-bottom: 1px solid #1f2937;
+      flex-wrap: wrap;
     }
 
     .logo-link img {
       height: 65px;
       cursor: pointer;
-      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      margin-left: 25px;
       color: #cbd5e1;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
@@ -39,8 +59,8 @@
     .service-strip {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      padding: 12px;
+      gap: 32px;
+      padding: 12px 20px;
       background-color: #020617;
       border-bottom: 1px solid #1f2937;
       flex-wrap: wrap;
@@ -50,8 +70,9 @@
     .service-strip a {
       color: #94a3b8;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: color 0.25s ease, text-shadow 0.25s ease;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .service-strip a:hover {
@@ -64,10 +85,16 @@
       min-height: 80vh;
     }
 
-    .hero-left {
+    .hero-left,
+    .hero-right {
       width: 50%;
+    }
+
+    .hero-left {
       padding: 80px 60px;
-      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-header {
@@ -75,24 +102,25 @@
       align-items: center;
       gap: 20px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
     .hero-logo {
       width: 140px;
-      height: auto;
-      display: block;
+      flex-shrink: 0;
     }
 
     .hero h1 {
       font-size: 42px;
       margin: 0;
+      line-height: 1.15;
     }
 
     .hero-mission {
       color: #cbd5e1;
       margin: 20px 0 30px;
-      max-width: 500px;
-      line-height: 1.6;
+      max-width: 520px;
+      line-height: 1.7;
       font-size: 17px;
     }
 
@@ -104,6 +132,7 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: 14px;
+      width: fit-content;
       transition: background-color 0.2s ease;
     }
 
@@ -112,13 +141,13 @@
     }
 
     .hero-right {
-      width: 50%;
       background:
         linear-gradient(to left, rgba(11,15,26,0.2), rgba(11,15,26,1)),
         url("Images/Fiber.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      min-height: 500px;
     }
 
     .services {
@@ -127,25 +156,38 @@
       background-color: #111827;
     }
 
+    .services h2 {
+      margin-top: 0;
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .service-box {
-      display: inline-block;
-      width: 280px;
-      margin: 15px;
       padding: 25px;
       background-color: #1f2937;
       border-radius: 12px;
-      vertical-align: top;
-      box-sizing: border-box;
+      text-align: left;
     }
 
     .service-box h3 {
       color: #96EDFF;
+      margin-top: 0;
+      margin-bottom: 12px;
     }
 
     .service-box p {
       color: #cbd5e1;
       line-height: 1.6;
       font-size: 15px;
+      margin: 0;
     }
 
     .footer {
@@ -154,22 +196,55 @@
       color: #94a3b8;
     }
 
-    @media (max-width: 900px) {
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero-left {
+        padding: 60px 40px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero-logo {
+        width: 120px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
       .navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
+        padding: 18px 20px;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .logo-link {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .logo-link img {
+        height: 58px;
       }
 
       .nav-links {
-        display: flex;
-        flex-wrap: wrap;
+        width: 100%;
         justify-content: center;
-        gap: 15px;
+        gap: 18px;
       }
 
-      .nav-links a {
-        margin-left: 0;
+      .service-strip {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        gap: 24px;
+        padding: 12px 16px;
       }
 
       .hero {
@@ -182,25 +257,66 @@
       }
 
       .hero-left {
-        padding: 50px 30px;
-      }
-
-      .hero-right {
-        min-height: 320px;
+        padding: 50px 24px 40px;
       }
 
       .hero-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 16px;
+      }
+
+      .hero-logo {
+        width: 110px;
       }
 
       .hero h1 {
-        font-size: 32px;
+        font-size: 30px;
       }
 
-      .service-strip {
-        gap: 20px;
-        padding: 12px 20px;
+      .hero-mission {
+        font-size: 16px;
+        max-width: 100%;
+      }
+
+      .hero button {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      .hero-right {
+        min-height: 340px;
+      }
+
+      .services {
+        padding: 55px 16px;
+      }
+
+      .services h2 {
+        font-size: 28px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .hero-mission {
+        font-size: 15px;
+      }
+
+      .service-box {
+        padding: 20px;
+      }
+
+      .nav-links {
+        gap: 14px;
       }
     }
   </style>
@@ -215,7 +331,7 @@
 
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="index.html#services">Services</a>
+      <a href="#services">Services</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
@@ -249,19 +365,21 @@
   <section class="services" id="services">
     <h2>Our Services</h2>
 
-    <div class="service-box">
-      <h3>Network</h3>
-      <p>Design, support, and optimization for stable and scalable business connectivity.</p>
-    </div>
+    <div class="services-grid">
+      <div class="service-box">
+        <h3>Network</h3>
+        <p>Design, support, and optimization for stable and scalable business connectivity.</p>
+      </div>
 
-    <div class="service-box">
-      <h3>Cloud Services</h3>
-      <p>Flexible cloud solutions to improve accessibility, resilience, and business continuity.</p>
-    </div>
+      <div class="service-box">
+        <h3>Cloud Services</h3>
+        <p>Flexible cloud solutions to improve accessibility, resilience, and business continuity.</p>
+      </div>
 
-    <div class="service-box">
-      <h3>Cyber Security</h3>
-      <p>Protective services focused on risk reduction and secure operations.</p>
+      <div class="service-box">
+        <h3>Cyber Security</h3>
+        <p>Protective services focused on risk reduction and secure operations.</p>
+      </div>
     </div>
   </section>
 
