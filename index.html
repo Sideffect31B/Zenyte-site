@@ -12,8 +12,8 @@
 
     :root {
       --bg-main: #020817;
-      --bg-panel: #08111f;
-      --bg-card: rgba(10, 20, 38, 0.88);
+      --bg-panel: rgba(2, 8, 23, 0.9);
+      --bg-card: rgba(7, 16, 32, 0.88);
       --border: rgba(148, 163, 184, 0.16);
       --text-main: #ffffff;
       --text-muted: #cbd5e1;
@@ -44,7 +44,7 @@
     .site-shell {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(2, 8, 23, 0.94), rgba(2, 8, 23, 0.96)),
+        linear-gradient(rgba(2, 8, 23, 0.92), rgba(2, 8, 23, 0.95)),
         url("Images/Fiber.jpg");
       background-size: cover;
       background-position: center;
@@ -169,201 +169,238 @@
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 470px 1fr;
-      gap: 48px;
-      align-items: stretch;
-      min-height: 540px;
+      text-align: center;
+      padding: 56px 24px 44px;
       border-bottom: 1px solid var(--border);
     }
 
-    .hero-left {
-      padding: 56px 48px 40px 72px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(to right, rgba(2, 8, 23, 0.98), rgba(2, 8, 23, 0.82));
+    .hero-logo {
+      width: 96px;
+      margin: 0 auto 18px;
     }
 
-    .hero-logo-block {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 26px;
-    }
-
-    .hero-logo-block img {
-      width: 130px;
-      flex-shrink: 0;
-    }
-
-    .hero-title-group {
-      min-width: 0;
-    }
-
-    .hero-title-group h1 {
+    .hero h1 {
       margin: 0;
-      font-size: 4rem;
-      line-height: 0.95;
-      letter-spacing: 1px;
+      font-size: 4.2rem;
+      line-height: 1.05;
       font-weight: 700;
+      letter-spacing: 1px;
     }
 
-    .hero-title-group .tech {
-      margin-top: 8px;
-      display: block;
+    .hero h1 .accent {
       color: var(--accent);
-      letter-spacing: 6px;
-      font-size: 0.95rem;
-      font-weight: 700;
     }
 
     .hero-copy {
-      max-width: 360px;
+      max-width: 760px;
+      margin: 20px auto 0;
       color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.85;
-      margin: 0 0 30px;
+      font-size: 1.05rem;
+      line-height: 1.7;
     }
 
-    .cta-button {
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .primary-button,
+    .secondary-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      width: 226px;
-      padding: 18px 22px;
+      gap: 14px;
+      min-width: 190px;
+      padding: 16px 26px;
       border-radius: 14px;
-      border: none;
-      background: linear-gradient(90deg, #7ed4e6 0%, var(--accent) 100%);
-      color: #03111f;
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
-    .cta-button:hover {
+    .primary-button {
+      background: linear-gradient(90deg, #7ed4e6 0%, var(--accent) 100%);
+      color: #03111f;
+      border: none;
+      box-shadow: var(--shadow);
+    }
+
+    .primary-button:hover {
       transform: translateY(-1px);
       background: linear-gradient(90deg, #90ebff 0%, #7adff5 100%);
     }
 
-    .cta-arrow {
-      font-size: 1.5rem;
-      line-height: 1;
+    .secondary-button {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(150, 237, 255, 0.08);
     }
 
-    .hero-right {
-      position: relative;
-      overflow: hidden;
-      min-height: 540px;
-      background:
-        linear-gradient(to left, rgba(2, 8, 23, 0.08), rgba(2, 8, 23, 0.44)),
-        url("Images/Fiber.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .hero-right::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(2, 8, 23, 0.18), rgba(2, 8, 23, 0.02));
-    }
-
-    .services {
-      padding: 34px 48px 62px;
-      background: rgba(4, 14, 32, 0.76);
-      backdrop-filter: blur(4px);
-    }
-
-    .services-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .services-header h2 {
-      margin: 0;
-      font-size: 2.9rem;
-      line-height: 1.1;
-      font-weight: 700;
-    }
-
-    .services-header .underline {
-      width: 40px;
-      height: 3px;
-      background: var(--accent);
-      margin: 10px auto 0;
-      border-radius: 999px;
-      box-shadow: 0 0 12px rgba(150, 237, 255, 0.45);
-    }
-
-    .services-grid {
-      max-width: 1320px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(260px, 1fr));
-      gap: 28px;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 34px 38px 30px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.015);
-      min-height: 258px;
-    }
-
-    .service-icon {
-      font-size: 3rem;
+    .secondary-button:hover {
+      transform: translateY(-1px);
+      border-color: #b8f5ff;
       color: var(--accent);
-      margin-bottom: 18px;
-      line-height: 1;
     }
 
-    .service-card h3 {
-      margin: 0 0 16px;
-      font-size: 1.95rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .service-card p {
-      margin: 0 0 26px;
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .learn-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--accent);
-      font-weight: 500;
-      font-size: 0.98rem;
-    }
-
-    .learn-more .arrow {
+    .button-arrow {
       font-size: 1.35rem;
       line-height: 1;
     }
 
+    .services-overview {
+      padding: 24px 48px 32px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(140px, 1fr));
+      gap: 0;
+      background: rgba(7, 16, 32, 0.84);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .service-tile {
+      padding: 28px 20px 24px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(7, 16, 32, 0.58);
+    }
+
+    .service-tile:last-child {
+      border-right: none;
+    }
+
+    .service-tile .icon {
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .service-tile h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .service-tile .arrow {
+      color: var(--accent);
+      font-size: 1.9rem;
+      line-height: 1;
+      margin-top: 18px;
+    }
+
+    .why-zenyte {
+      padding: 20px 48px 54px;
+    }
+
+    .why-panel {
+      display: grid;
+      grid-template-columns: 1.3fr repeat(4, 1fr);
+      gap: 0;
+      align-items: stretch;
+      border-top: 1px solid rgba(148, 163, 184, 0.08);
+      padding-top: 28px;
+    }
+
+    .why-intro,
+    .why-item {
+      padding: 0 26px;
+      border-right: 1px solid var(--border);
+    }
+
+    .why-item:last-child {
+      border-right: none;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .eyebrow-line {
+      width: 42px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 0 18px;
+      box-shadow: 0 0 10px rgba(150, 237, 255, 0.45);
+    }
+
+    .why-intro h2 {
+      margin: 0 0 14px;
+      font-size: 1.95rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .why-intro p,
+    .why-item p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .why-item .icon {
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .why-item h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
     @media (max-width: 1280px) {
-      .hero {
-        grid-template-columns: 430px 1fr;
-      }
-
-      .hero-title-group h1 {
-        font-size: 3.3rem;
-      }
-
       .services-grid {
-        grid-template-columns: 1fr;
-        max-width: 760px;
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+      }
+
+      .service-tile:nth-child(3n) {
+        border-right: none;
+      }
+
+      .service-tile:nth-child(-n + 3) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .why-panel {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .why-intro,
+      .why-item {
+        border-right: none;
+        padding: 0;
+      }
+
+      .why-intro {
+        grid-column: 1 / -1;
       }
     }
 
@@ -379,19 +416,34 @@
       }
 
       .hero {
-        grid-template-columns: 1fr;
+        padding: 48px 20px 38px;
       }
 
-      .hero-left {
-        padding: 42px 24px 28px;
+      .hero h1 {
+        font-size: 3.2rem;
       }
 
-      .hero-right {
-        min-height: 340px;
+      .services-overview,
+      .why-zenyte {
+        padding-left: 24px;
+        padding-right: 24px;
       }
 
-      .services {
-        padding: 34px 24px 54px;
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+
+      .service-tile {
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .service-tile:nth-child(2n) {
+        border-right: none;
+      }
+
+      .service-tile:nth-last-child(-n + 2) {
+        border-bottom: none;
       }
     }
 
@@ -444,42 +496,37 @@
         gap: 22px;
       }
 
-      .hero-left {
-        background: transparent;
+      .hero-logo {
+        width: 82px;
       }
 
-      .hero-logo-block {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .hero-logo-block img {
-        width: 110px;
-      }
-
-      .hero-title-group h1 {
+      .hero h1 {
         font-size: 2.6rem;
       }
 
       .hero-copy {
-        max-width: none;
+        font-size: 0.98rem;
       }
 
-      .hero-right {
-        display: none;
+      .services-overview,
+      .why-zenyte {
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
-      .services {
-        background: rgba(4, 14, 32, 0.86);
+      .services-grid,
+      .why-panel {
+        grid-template-columns: 1fr;
       }
 
-      .services-header h2 {
-        font-size: 2.3rem;
+      .service-tile,
+      .service-tile:nth-child(2n),
+      .service-tile:nth-child(3n) {
+        border-right: none;
       }
 
-      .service-card {
-        min-height: auto;
+      .service-tile:not(:last-child) {
+        border-bottom: 1px solid var(--border);
       }
     }
 
@@ -500,42 +547,31 @@
         gap: 14px;
       }
 
-      .hero-left {
-        padding: 34px 16px 24px;
+      .hero {
+        padding: 34px 16px 28px;
       }
 
-      .hero-title-group h1 {
+      .hero h1 {
         font-size: 2.2rem;
       }
 
-      .hero-title-group .tech {
-        font-size: 0.82rem;
-        letter-spacing: 4px;
-      }
-
       .hero-copy {
-        font-size: 0.98rem;
+        font-size: 0.95rem;
       }
 
-      .cta-button {
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .primary-button,
+      .secondary-button {
         width: 100%;
-        max-width: 260px;
+        max-width: 280px;
       }
 
-      .services {
-        padding: 28px 16px 44px;
-      }
-
-      .services-header h2 {
-        font-size: 2rem;
-      }
-
-      .service-card {
-        padding: 28px 24px 24px;
-      }
-
-      .service-card h3 {
-        font-size: 1.7rem;
+      .why-intro h2 {
+        font-size: 1.65rem;
       }
     }
   </style>
@@ -554,7 +590,6 @@
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="#services">Services</a>
-        <a href="contact.html">Contact</a>
       </div>
     </nav>
 
@@ -573,63 +608,103 @@
     </div>
 
     <section class="hero">
-      <div class="hero-left">
-        <div class="hero-logo-block">
-          <img src="Images/Logo.png" alt="Zenyte Technologies Logo">
-          <div class="hero-title-group">
-            <h1>ZENYTE</h1>
-            <span class="tech">TECHNOLOGIES</span>
-          </div>
-        </div>
+      <img src="Images/Logo.png" alt="Zenyte Technologies Logo" class="hero-logo">
 
-        <p class="hero-copy">
-          At Zenyte Technologies, our mission is to deliver reliable, scalable, and forward-thinking technology solutions that empower businesses to operate efficiently and grow with confidence.
-        </p>
+      <h1>
+        EMPOWERING BUSINESSES<br>
+        <span class="accent">THROUGH TECHNOLOGY</span>
+      </h1>
 
-        <button class="cta-button" onclick="location.href='contact.html'">
+      <p class="hero-copy">
+        Innovative IT solutions designed to keep your systems secure, connected, and ready for the future.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="primary-button">
+          <span>Our Services</span>
+          <span class="button-arrow">→</span>
+        </a>
+
+        <a href="contact.html" class="secondary-button">
           <span>Contact Us</span>
-          <span class="cta-arrow">→</span>
-        </button>
+          <span class="button-arrow">→</span>
+        </a>
       </div>
-
-      <div class="hero-right"></div>
     </section>
 
-    <section class="services" id="services">
-      <div class="services-header">
-        <h2>Our Services</h2>
-        <div class="underline"></div>
-      </div>
-
+    <section class="services-overview" id="services">
       <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">⛶</div>
+        <a href="network.html" class="service-tile">
+          <div class="icon">⛶</div>
           <h3>Network</h3>
-          <p>Design, support, and optimization for stable and scalable business connectivity.</p>
-          <a class="learn-more" href="network.html">
-            <span>Learn more</span>
-            <span class="arrow">→</span>
-          </a>
+          <div class="arrow">→</div>
+        </a>
+
+        <a href="enterprise-setup.html" class="service-tile">
+          <div class="icon">▦</div>
+          <h3>Enterprise<br>Set-up</h3>
+          <div class="arrow">→</div>
+        </a>
+
+        <a href="cloud-services.html" class="service-tile">
+          <div class="icon">☁</div>
+          <h3>Cloud<br>Services</h3>
+          <div class="arrow">→</div>
+        </a>
+
+        <a href="cyber-security.html" class="service-tile">
+          <div class="icon">🛡</div>
+          <h3>Cyber<br>Security</h3>
+          <div class="arrow">→</div>
+        </a>
+
+        <a href="computer-repair.html" class="service-tile">
+          <div class="icon">🛠</div>
+          <h3>Computer<br>Repair</h3>
+          <div class="arrow">→</div>
+        </a>
+
+        <a href="infrastructure-consulting.html" class="service-tile">
+          <div class="icon">▣</div>
+          <h3>Infrastructure<br>Consulting</h3>
+          <div class="arrow">→</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="why-zenyte">
+      <div class="why-panel">
+        <div class="why-intro">
+          <span class="eyebrow">Why Choose Zenyte?</span>
+          <div class="eyebrow-line"></div>
+          <h2>Reliable Solutions.<br>Real Results.</h2>
+          <p>
+            We combine expertise, passion, and technology to deliver IT solutions that make a difference.
+          </p>
         </div>
 
-        <div class="service-card">
-          <div class="service-icon">☁</div>
-          <h3>Cloud Services</h3>
-          <p>Flexible cloud solutions to improve accessibility, resilience, and business continuity.</p>
-          <a class="learn-more" href="cloud-services.html">
-            <span>Learn more</span>
-            <span class="arrow">→</span>
-          </a>
+        <div class="why-item">
+          <div class="icon">🛡</div>
+          <h3>Reliable</h3>
+          <p>Solutions you can count on, 24/7 support and monitoring to keep you running.</p>
         </div>
 
-        <div class="service-card">
-          <div class="service-icon">🛡</div>
-          <h3>Cyber Security</h3>
-          <p>Protective services focused on risk reduction and secure operations.</p>
-          <a class="learn-more" href="cyber-security.html">
-            <span>Learn more</span>
-            <span class="arrow">→</span>
-          </a>
+        <div class="why-item">
+          <div class="icon">📈</div>
+          <h3>Scalable</h3>
+          <p>Built to grow with your business and adapt to your needs.</p>
+        </div>
+
+        <div class="why-item">
+          <div class="icon">💡</div>
+          <h3>Innovative</h3>
+          <p>Future-ready technology and creative solutions that drive real results.</p>
+        </div>
+
+        <div class="why-item">
+          <div class="icon">👥</div>
+          <h3>Client Focused</h3>
+          <p>We put your business first with personalized service and expert guidance.</p>
         </div>
       </div>
     </section>
