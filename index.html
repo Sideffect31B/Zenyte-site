@@ -25,6 +25,7 @@
       --topbar-height: 88px;
       --radius: 20px;
       --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --image-shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
     }
 
     html, body {
@@ -155,26 +156,33 @@
     }
 
     .brand-text {
+      width: 245px;
       line-height: 1;
       text-align: left;
-      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .brand-text .top {
       display: block;
-      font-size: 1.18rem;
+      width: 100%;
+      font-size: 2.15rem;
       font-weight: 800;
-      letter-spacing: 2px;
+      letter-spacing: 1.6px;
       color: var(--text);
+      white-space: nowrap;
     }
 
     .brand-text .bottom {
       display: block;
-      margin-top: 7px;
-      font-size: 0.74rem;
+      width: 100%;
+      margin-top: 6px;
+      font-size: 0.73rem;
       font-weight: 700;
-      letter-spacing: 6px;
+      letter-spacing: 8.05px;
       color: var(--accent);
+      white-space: nowrap;
     }
 
     .sidebar {
@@ -306,13 +314,11 @@
     .hero-card {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
+      gap: 18px;
       min-height: 460px;
-      background: rgba(4, 15, 30, 0.88);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
 
     .hero-copy {
@@ -320,7 +326,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: linear-gradient(to right, rgba(4, 15, 30, 0.98), rgba(4, 15, 30, 0.86));
+      background: rgba(4, 15, 30, 0.9);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
     .eyebrow {
@@ -380,26 +389,6 @@
       transform: translateY(-1px);
     }
 
-    .hero-visual {
-      position: relative;
-      background:
-        linear-gradient(rgba(3, 12, 26, 0.12), rgba(3, 12, 26, 0.2)),
-        url("Images/index-hero.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0;
-      animation: fadeInImage 1.15s ease-out forwards;
-    }
-
-    .hero-visual::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to left, rgba(2, 8, 23, 0.04), rgba(2, 8, 23, 0.18));
-    }
-
     @keyframes fadeInImage {
       from {
         opacity: 0;
@@ -409,6 +398,32 @@
         opacity: 1;
         transform: scale(1);
       }
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 460px;
+      background:
+        linear-gradient(rgba(3, 12, 26, 0.1), rgba(3, 12, 26, 0.16)),
+        url("Images/index-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      border-radius: var(--radius);
+      box-shadow: var(--image-shadow);
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeInImage 1.15s ease-out forwards;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to left, rgba(2, 8, 23, 0.03), rgba(2, 8, 23, 0.12));
+      pointer-events: none;
     }
 
     .services-grid {
@@ -512,16 +527,16 @@
       }
 
       .brand-text {
-        min-width: 150px;
+        width: 205px;
       }
 
       .brand-text .top {
-        font-size: 1rem;
+        font-size: 1.75rem;
       }
 
       .brand-text .bottom {
-        font-size: 0.66rem;
-        letter-spacing: 5px;
+        font-size: 0.64rem;
+        letter-spacing: 6.6px;
       }
 
       .content {
@@ -731,43 +746,3 @@
 
   <script>
     const app = document.getElementById('app');
-    const menuToggle = document.getElementById('menuToggle');
-    const closeMenu = document.getElementById('closeMenu');
-    const overlay = document.getElementById('overlay');
-
-    function openMenu() {
-      app.classList.add('menu-open');
-      menuToggle.setAttribute('aria-expanded', 'true');
-    }
-
-    function closeSidebar() {
-      app.classList.remove('menu-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-
-    function toggleMenu() {
-      if (app.classList.contains('menu-open')) {
-        closeSidebar();
-      } else {
-        openMenu();
-      }
-    }
-
-    menuToggle.addEventListener('click', toggleMenu);
-    closeMenu.addEventListener('click', closeSidebar);
-    overlay.addEventListener('click', closeSidebar);
-
-    window.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        closeSidebar();
-      }
-    });
-
-    window.addEventListener('resize', function() {
-      if (window.innerWidth <= 980) {
-        closeSidebar();
-      }
-    });
-  </script>
-</body>
-</html>
