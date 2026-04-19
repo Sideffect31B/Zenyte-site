@@ -1,254 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zenyte Technologies | Network Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network | Zenyte Technologies</title>
+
   <style>
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
     }
 
-    body {
-      background: linear-gradient(180deg, #010814 0%, #021024 100%);
-      color: #ffffff;
-      min-height: 100vh;
+    :root {
+      --bg: #020817;
+      --panel: rgba(6, 17, 31, 0.96);
+      --panel-2: rgba(7, 18, 34, 0.92);
+      --card: rgba(5, 16, 31, 0.92);
+      --border: rgba(150, 237, 255, 0.14);
+      --accent: #96EDFF;
+      --accent-strong: #5ddfff;
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --sidebar-width: 290px;
+      --topbar-height: 84px;
+      --radius: 20px;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
     }
 
-    .page-wrapper {
-      width: 100%;
+    body {
       min-height: 100vh;
       background:
-        radial-gradient(circle at top right, rgba(0, 140, 255, 0.10), transparent 30%),
-        radial-gradient(circle at center, rgba(0, 153, 255, 0.05), transparent 35%),
-        linear-gradient(180deg, #010814 0%, #021024 100%);
+        linear-gradient(rgba(2, 8, 23, 0.94), rgba(2, 8, 23, 0.97)),
+        url("Images/Net.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    .top-bar {
-      width: 100%;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .app {
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--topbar-height);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 18px 24px;
-      border-bottom: 1px solid rgba(120, 200, 255, 0.10);
+      justify-content: space-between;
+      padding: 0 14px;
+      background: rgba(2, 8, 23, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .menu-button {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      border: 1px solid rgba(100, 180, 255, 0.18);
-      background: rgba(255, 255, 255, 0.03);
-      display: flex;
+    .menu-toggle {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(7, 17, 31, 0.92);
+      color: var(--accent);
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 0 10px rgba(0, 153, 255, 0.08);
+      box-shadow: var(--shadow);
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
-    .menu-button:hover {
-      border-color: rgba(120, 220, 255, 0.45);
-      box-shadow: 0 0 18px rgba(0, 174, 255, 0.18);
+    .menu-toggle:hover {
+      background: rgba(10, 24, 43, 0.96);
       transform: translateY(-1px);
     }
 
-    .menu-icon {
+    .hamburger {
       width: 18px;
       height: 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      position: relative;
+      display: block;
     }
 
-    .menu-icon span {
-      display: block;
+    .hamburger span {
+      position: absolute;
+      left: 0;
+      right: 0;
       height: 2px;
-      width: 100%;
-      background: #8edfff;
-      border-radius: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
+
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 6px; }
+    .hamburger span:nth-child(3) { top: 12px; }
+
+    .app.menu-open .hamburger span:nth-child(1),
+    .app.default-open .hamburger span:nth-child(1) {
+      top: 6px;
+      transform: rotate(45deg);
+    }
+
+    .app.menu-open .hamburger span:nth-child(2),
+    .app.default-open .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .app.menu-open .hamburger span:nth-child(3),
+    .app.default-open .hamburger span:nth-child(3) {
+      top: 6px;
+      transform: rotate(-45deg);
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      margin-left: auto;
     }
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      position: relative;
+    .brand img {
+      height: 52px;
+      width: auto;
+      flex-shrink: 0;
     }
-
-    .brand-mark .diamond {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      background: linear-gradient(135deg, #47c7ff, #256dff);
-      transform: rotate(45deg);
-      box-shadow: 0 0 12px rgba(65, 180, 255, 0.35);
-      border-radius: 2px;
-    }
-
-    .brand-mark .d1 { top: 2px; left: 12px; }
-    .brand-mark .d2 { top: 12px; left: 2px; }
-    .brand-mark .d3 { top: 12px; left: 22px; }
-    .brand-mark .d4 { top: 22px; left: 12px; }
 
     .brand-text {
-      line-height: 1.05;
-      text-align: right;
+      line-height: 1;
+      text-align: left;
+      width: 165px;
+      flex-shrink: 0;
     }
 
-    .brand-text .main {
+    .brand-text .top {
       display: block;
-      font-size: 1.75rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .brand-text .sub {
-      display: block;
-      font-size: 0.72rem;
-      letter-spacing: 5px;
-      color: #c7f4ff;
-      margin-top: 4px;
-    }
-
-    .main-content {
-      padding: 14px 12px 30px;
-    }
-
-    .hero-panel {
       width: 100%;
-      min-height: 480px;
-      border: 1px solid rgba(100, 180, 255, 0.12);
-      border-radius: 24px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1.02fr 1.08fr;
-      background: rgba(1, 12, 28, 0.78);
-      box-shadow:
-        inset 0 0 30px rgba(0, 90, 200, 0.05),
-        0 0 20px rgba(0, 132, 255, 0.05);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--text);
     }
 
-    .hero-left {
-      padding: 42px 36px;
+    .brand-text .bottom {
+      display: block;
+      width: 100%;
+      margin-top: 7px;
+      font-size: 0.54rem;
+      font-weight: 700;
+      letter-spacing: 6.7px;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: var(--topbar-height);
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar-width);
+      background: linear-gradient(180deg, rgba(5, 15, 30, 0.98), rgba(3, 11, 22, 0.98));
+      border-right: 1px solid var(--border);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 950;
+      overflow-y: auto;
+      box-shadow: var(--shadow);
+    }
+
+    .app.menu-open .sidebar,
+    .app.default-open .sidebar {
+      transform: translateX(0);
+    }
+
+    .sidebar-inner {
+      padding: 18px 14px 22px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding: 6px 6px 10px;
+    }
+
+    .sidebar-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .close-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(7, 17, 31, 0.92);
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .menu-group {
+      display: grid;
+      gap: 10px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 58px;
+      padding: 0 16px;
+      border-radius: 14px;
+      background: rgba(8, 22, 40, 0.45);
+      border: 1px solid rgba(150, 237, 255, 0.1);
+      color: var(--text);
+      transition: 0.2s ease;
+    }
+
+    .menu-item:hover,
+    .menu-item.active {
+      color: var(--accent);
+      background: rgba(150, 237, 255, 0.1);
+      border-color: rgba(150, 237, 255, 0.18);
+    }
+
+    .menu-icon {
+      width: 28px;
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .menu-label {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: var(--topbar-height) 0 0 0;
+      background: rgba(0, 0, 0, 0.36);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s ease;
+      z-index: 900;
+    }
+
+    .app.menu-open .overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .content {
+      padding: 10px 4px 18px;
+      transition: margin-left 0.3s ease, width 0.3s ease;
+      width: 100%;
+    }
+
+    .app.menu-open .content,
+    .app.default-open .content {
+      margin-left: var(--sidebar-width);
+      width: calc(100% - var(--sidebar-width));
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 0.94fr 1.06fr;
+      min-height: 540px;
+      background: rgba(4, 15, 30, 0.9);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 0 0 12px;
+    }
+
+    .hero-copy {
+      padding: 32px 26px 26px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: linear-gradient(90deg, rgba(1, 11, 24, 0.98), rgba(1, 11, 24, 0.84));
-      z-index: 2;
+      background: linear-gradient(to right, rgba(4, 15, 30, 0.98), rgba(4, 15, 30, 0.86));
     }
 
     .eyebrow {
-      color: #7de0ff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.95rem;
+      color: var(--accent);
+      font-size: 0.82rem;
       font-weight: 700;
-      margin-bottom: 26px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
 
-    .hero-left h1 {
-      font-size: 4rem;
+    .hero-copy h1 {
+      margin: 0 0 18px;
+      font-size: 3.05rem;
       line-height: 1.06;
       font-weight: 800;
-      margin-bottom: 24px;
-      max-width: 620px;
+      max-width: 520px;
     }
 
-    .hero-left h1 .accent {
-      color: #92e6ff;
+    .hero-copy h1 .accent {
+      color: var(--accent);
     }
 
-    .hero-left p {
-      font-size: 1.3rem;
+    .hero-copy p {
+      margin: 0 0 20px;
+      color: var(--muted);
       line-height: 1.65;
-      color: #d9eaf6;
-      max-width: 620px;
-      margin-bottom: 28px;
+      font-size: 1rem;
+      max-width: 520px;
     }
 
-    .feature-list {
+    .bullet-list {
+      margin: 0 0 28px;
+      padding: 0;
       list-style: none;
-      margin-bottom: 30px;
+      display: grid;
+      gap: 10px;
     }
 
-    .feature-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #e8f5ff;
-      font-size: 1.14rem;
-      margin-bottom: 15px;
+    .bullet-list li {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.5;
     }
 
-    .feature-list li::before {
+    .bullet-list li::before {
       content: "✓";
-      color: #72e3ff;
-      font-weight: bold;
-      font-size: 1.3rem;
+      color: var(--accent);
+      margin-right: 10px;
+      font-weight: 700;
     }
 
-    .cta-button {
+    .primary-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      width: 170px;
-      height: 54px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #7de6ff, #5fcfff);
-      color: #021221;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 1.05rem;
-      box-shadow: 0 0 18px rgba(111, 223, 255, 0.18);
-      transition: 0.3s ease;
+      gap: 10px;
+      min-width: 138px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(90deg, #7ed4e6 0%, var(--accent) 100%);
+      color: #03111f;
+      font-weight: 700;
+      cursor: pointer;
+      width: fit-content;
+      box-shadow: var(--shadow);
     }
 
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 24px rgba(111, 223, 255, 0.30);
-    }
-
-    .hero-right {
+    .hero-visual {
       position: relative;
-      min-height: 480px;
-      overflow: hidden;
-      background: #020b1d;
-    }
-
-    .hero-right img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      background:
+        linear-gradient(rgba(3, 12, 26, 0.04), rgba(3, 12, 26, 0.1)),
+        url("Images/Net.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       opacity: 0;
-      animation: fadeInImage 1.2s ease forwards;
+      animation: fadeInHero 1.2s ease-out forwards;
     }
 
-    .hero-right::after {
+    .hero-visual::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(to left, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.12)),
-        radial-gradient(circle at center, rgba(0, 160, 255, 0.08), transparent 50%);
+      background: linear-gradient(to left, rgba(2, 8, 23, 0.02), rgba(2, 8, 23, 0.08));
       pointer-events: none;
     }
 
-    @keyframes fadeInImage {
+    @keyframes fadeInHero {
       from {
         opacity: 0;
-        transform: scale(1.02);
+        transform: scale(1.01);
       }
       to {
         opacity: 1;
@@ -256,282 +413,362 @@
       }
     }
 
-    .jobs-section {
-      margin-top: 14px;
-    }
-
-    .jobs-grid {
+    .service-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .job-card {
-      min-height: 250px;
-      border-radius: 22px;
-      padding: 28px 24px;
-      background:
-        linear-gradient(180deg, rgba(0, 10, 25, 0.88), rgba(0, 18, 40, 0.78)),
-        rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(95, 195, 255, 0.16);
-      box-shadow:
-        inset 0 0 25px rgba(0, 132, 255, 0.04),
-        0 0 10px rgba(0, 80, 170, 0.06);
-      position: relative;
-      overflow: hidden;
-      transition: 0.3s ease;
+    .service-card {
+      background: rgba(5, 16, 31, 0.94);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 18px 16px 18px;
+      min-height: 232px;
     }
 
-    .job-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #69ddff, transparent);
-      opacity: 0.8;
-    }
-
-    .job-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(114, 227, 255, 0.35);
-      box-shadow:
-        inset 0 0 28px rgba(0, 153, 255, 0.06),
-        0 0 24px rgba(0, 162, 255, 0.12);
-    }
-
-    .job-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      display: flex;
+    .service-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid rgba(150, 237, 255, 0.14);
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 18px;
-      background: rgba(106, 220, 255, 0.10);
-      border: 1px solid rgba(106, 220, 255, 0.22);
-      color: #7ce8ff;
-      font-size: 1.5rem;
-      box-shadow: 0 0 14px rgba(90, 205, 255, 0.08);
-    }
-
-    .job-card h3 {
-      font-size: 1.45rem;
-      color: #9eeaff;
+      color: var(--accent);
+      font-size: 1rem;
+      background: rgba(150, 237, 255, 0.05);
       margin-bottom: 14px;
     }
 
-    .job-card p {
+    .service-card h3 {
+      margin: 0 0 12px;
+      color: var(--accent);
       font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .service-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .mini-list {
+      margin: 0;
+      padding-left: 14px;
+      color: var(--muted);
+      font-size: 0.84rem;
       line-height: 1.65;
-      color: #d2e5f2;
-      margin-bottom: 16px;
     }
 
-    .job-card ul {
-      list-style: none;
-      padding-left: 0;
+    .mini-list li {
+      margin-bottom: 3px;
     }
 
-    .job-card ul li {
-      font-size: 0.95rem;
-      color: #c8deee;
-      margin-bottom: 10px;
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .job-card ul li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #72e3ff;
-    }
-
-    @media (max-width: 1350px) {
-      .hero-left h1 {
-        font-size: 3.2rem;
-      }
-
-      .hero-left p {
-        font-size: 1.1rem;
+    @media (min-width: 981px) {
+      .close-btn {
+        display: none;
       }
     }
 
-    @media (max-width: 1100px) {
-      .hero-panel {
+    @media (max-width: 1400px) {
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .hero-card {
         grid-template-columns: 1fr;
       }
 
-      .hero-right {
-        min-height: 360px;
-      }
-
-      .jobs-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .hero-visual {
+        min-height: 320px;
       }
     }
 
-    @media (max-width: 700px) {
-      .top-bar {
-        padding: 14px 16px;
+    @media (max-width: 980px) {
+      .app.default-open .content,
+      .app.menu-open .content {
+        margin-left: 0;
+        width: 100%;
       }
 
-      .brand-text .main {
-        font-size: 1.25rem;
+      .app.default-open .sidebar {
+        transform: translateX(-100%);
       }
 
-      .brand-text .sub {
-        font-size: 0.62rem;
-        letter-spacing: 3px;
+      .app.default-open .overlay {
+        opacity: 0;
+        visibility: hidden;
       }
 
-      .hero-left {
-        padding: 28px 22px;
+      .sidebar {
+        top: 0;
+        width: min(86vw, 320px);
       }
 
-      .hero-left h1 {
-        font-size: 2.3rem;
+      .overlay {
+        inset: 0;
       }
 
-      .hero-left p {
-        font-size: 1rem;
+      .brand img {
+        height: 48px;
       }
 
-      .feature-list li {
-        font-size: 1rem;
+      .brand-text {
+        width: 160px;
       }
 
-      .jobs-grid {
+      .brand-text .top {
+        font-size: 1.02rem;
+      }
+
+      .brand-text .bottom {
+        font-size: 0.52rem;
+        letter-spacing: 6.2px;
+      }
+
+      .content {
+        padding: 10px 8px 18px;
+      }
+
+      .hero-copy h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .brand-text {
+        display: none;
+      }
+
+      .brand img {
+        height: 42px;
+      }
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
+      }
+
+      .hero-copy {
+        padding: 26px 20px;
+      }
+
+      .hero-copy h1 {
+        font-size: 2rem;
+      }
+
+      .service-grid {
         grid-template-columns: 1fr;
       }
 
-      .job-card {
+      .service-card {
         min-height: auto;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <header class="top-bar">
-      <div class="menu-button" aria-label="Open navigation menu">
-        <div class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+  <div class="app default-open" id="app">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="true">
+        <span class="hamburger"><span></span><span></span><span></span></span>
+      </button>
 
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true">
-          <div class="diamond d1"></div>
-          <div class="diamond d2"></div>
-          <div class="diamond d3"></div>
-          <div class="diamond d4"></div>
-        </div>
+      <a href="index.html" class="brand">
+        <img src="Images/Logo.png" alt="Zenyte Technologies Logo">
         <div class="brand-text">
-          <span class="main">ZENYTE</span>
-          <span class="sub">TECHNOLOGIES</span>
+          <span class="top">ZENYTE</span>
+          <span class="bottom">TECHNOLOGIES</span>
         </div>
-      </div>
+      </a>
     </header>
 
-    <main class="main-content">
-      <section class="hero-panel">
-        <div class="hero-left">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-header">
+          <div class="sidebar-title">Navigation</div>
+          <button class="close-btn" id="closeMenu" aria-label="Close menu">✕</button>
+        </div>
+
+        <nav class="menu-group">
+          <a href="index.html" class="menu-item"><span class="menu-icon">⌂</span><span class="menu-label">Home</span></a>
+          <a href="network.html" class="menu-item active"><span class="menu-icon">⛶</span><span class="menu-label">Network</span></a>
+          <a href="enterprise-setup.html" class="menu-item"><span class="menu-icon">▦</span><span class="menu-label">Enterprise Set-up</span></a>
+          <a href="cloud-services.html" class="menu-item"><span class="menu-icon">☁</span><span class="menu-label">Cloud Services</span></a>
+          <a href="cyber-security.html" class="menu-item"><span class="menu-icon">🛡</span><span class="menu-label">Cyber Security</span></a>
+          <a href="computer-repair.html" class="menu-item"><span class="menu-icon">🛠</span><span class="menu-label">Computer Repair</span></a>
+          <a href="infrastructure-consulting.html" class="menu-item"><span class="menu-icon">▣</span><span class="menu-label">Infrastructure Consulting</span></a>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <main class="content">
+      <section class="hero-card">
+        <div class="hero-copy">
           <div class="eyebrow">Networking Solutions</div>
 
           <h1>
-            Reliable Connections.<br />
+            Reliable Connections.<br>
             <span class="accent">Stronger Performance.</span>
           </h1>
 
           <p>
-            We design, support, and improve business networks with services that
-            reduce downtime, strengthen reliability, and keep your environment running smoothly.
+            We design, support, and improve business networks with services
+            that reduce downtime, strengthen reliability, and keep your
+            environment running smoothly.
           </p>
 
-          <ul class="feature-list">
-            <li>Network Design &amp; Implementation</li>
+          <ul class="bullet-list">
+            <li>Network Design & Implementation</li>
             <li>Wireless Solutions</li>
             <li>Network Security</li>
-            <li>Monitoring &amp; Support</li>
+            <li>Monitoring & Support</li>
           </ul>
 
-          <a href="contact.html" class="cta-button">Get Started →</a>
+          <button class="primary-btn" onclick="location.href='contact.html'">Get Started →</button>
         </div>
 
-        <div class="hero-right">
-          <img src="images/Net.jpg" alt="Enterprise networking services visual" />
-        </div>
+        <div class="hero-visual" aria-hidden="true"></div>
       </section>
 
-      <section class="jobs-section">
-        <div class="jobs-grid">
-          <article class="job-card">
-            <div class="job-icon">📡</div>
-            <h3>Network Monitoring</h3>
-            <p>
-              Proactive monitoring services that help identify outages,
-              instability, and performance issues before they affect users.
-            </p>
-            <ul>
-              <li>Device uptime monitoring</li>
-              <li>Bandwidth and latency visibility</li>
-              <li>Alerting for service interruptions</li>
-              <li>Ongoing health checks</li>
-            </ul>
-          </article>
+      <section class="service-grid">
+        <article class="service-card">
+          <div class="service-icon">📡</div>
+          <h3>Network Monitoring</h3>
+          <p>
+            Proactive monitoring services that help identify outages, instability, and performance issues before they affect users.
+          </p>
+          <ul class="mini-list">
+            <li>Device uptime monitoring</li>
+            <li>Bandwidth and latency visibility</li>
+            <li>Alerting for service interruptions</li>
+            <li>Ongoing health checks</li>
+          </ul>
+        </article>
 
-          <article class="job-card">
-            <div class="job-icon">🖧</div>
-            <h3>Router &amp; Switch Configuration</h3>
-            <p>
-              Setup and optimization of essential network hardware to improve
-              traffic flow, segmentation, and day-to-day reliability.
-            </p>
-            <ul>
-              <li>Router deployment and setup</li>
-              <li>Switch configuration</li>
-              <li>VLAN and port planning</li>
-              <li>Configuration cleanup and review</li>
-            </ul>
-          </article>
+        <article class="service-card">
+          <div class="service-icon">🖧</div>
+          <h3>Router & Switch Configuration</h3>
+          <p>
+            Setup and optimization of essential network hardware to improve traffic flow, segmentation, and day-to-day reliability.
+          </p>
+          <ul class="mini-list">
+            <li>Router deployment and setup</li>
+            <li>Switch configuration</li>
+            <li>VLAN and port planning</li>
+            <li>Configuration cleanup and review</li>
+          </ul>
+        </article>
 
-          <article class="job-card">
-            <div class="job-icon">📶</div>
-            <h3>Wi-Fi Deployment</h3>
-            <p>
-              Wireless coverage planning and access point deployment built to
-              improve signal quality, consistency, and user experience.
-            </p>
-            <ul>
-              <li>Access point placement</li>
-              <li>SSID and security setup</li>
-              <li>Coverage improvements</li>
-              <li>Guest and staff wireless design</li>
-            </ul>
-          </article>
+        <article class="service-card">
+          <div class="service-icon">📶</div>
+          <h3>Wi-Fi Deployment</h3>
+          <p>
+            Wireless coverage planning and access point deployment built to improve signal quality, consistency, and user experience.
+          </p>
+          <ul class="mini-list">
+            <li>Access point placement</li>
+            <li>SSID and security setup</li>
+            <li>Coverage improvements</li>
+            <li>Guest and staff wireless design</li>
+          </ul>
+        </article>
 
-          <article class="job-card">
-            <div class="job-icon">🛠️</div>
-            <h3>Troubleshooting &amp; Support</h3>
-            <p>
-              Fast-response support for connectivity problems, unstable devices,
-              slow performance, and infrastructure issues.
-            </p>
-            <ul>
-              <li>Connectivity issue diagnosis</li>
-              <li>Packet loss and speed troubleshooting</li>
-              <li>Equipment replacement guidance</li>
-              <li>Ongoing support recommendations</li>
-            </ul>
-          </article>
-        </div>
+        <article class="service-card">
+          <div class="service-icon">🛠</div>
+          <h3>Troubleshooting & Support</h3>
+          <p>
+            Fast-response support for connectivity problems, unstable devices, slow performance, and infrastructure issues.
+          </p>
+          <ul class="mini-list">
+            <li>Connectivity issue diagnosis</li>
+            <li>Packet loss and speed troubleshooting</li>
+            <li>Equipment replacement guidance</li>
+            <li>Ongoing support recommendations</li>
+          </ul>
+        </article>
       </section>
     </main>
   </div>
+
+  <script>
+    const app = document.getElementById('app');
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const overlay = document.getElementById('overlay');
+
+    function isMobile() {
+      return window.innerWidth <= 980;
+    }
+
+    function applyDesktopDefault() {
+      if (isMobile()) {
+        app.classList.remove('default-open');
+        app.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        app.classList.add('default-open');
+        app.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    function openMenu() {
+      if (isMobile()) {
+        app.classList.add('menu-open');
+      } else {
+        app.classList.add('default-open');
+      }
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeSidebar() {
+      if (isMobile()) {
+        app.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function toggleMenu() {
+      if (isMobile()) {
+        if (app.classList.contains('menu-open')) {
+          app.classList.remove('menu-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        } else {
+          app.classList.add('menu-open');
+          menuToggle.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        if (app.classList.contains('default-open')) {
+          app.classList.remove('default-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        } else {
+          app.classList.add('default-open');
+          menuToggle.setAttribute('aria-expanded', 'true');
+        }
+      }
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    closeMenu.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSidebar();
+      }
+    });
+
+    window.addEventListener('resize', applyDesktopDefault);
+    applyDesktopDefault();
+  </script>
 </body>
 </html>
