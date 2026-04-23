@@ -19,10 +19,10 @@
       --text: #ffffff;
       --muted: #cbd5e1;
       --soft: #94a3b8;
-      --sidebar-width: 280px;
+      --sidebar-width: 290px;
       --topbar-height: 84px;
-      --radius: 18px;
-      --shadow: 0 16px 32px rgba(0, 0, 0, 0.32);
+      --radius: 20px;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
     }
 
     html,
@@ -73,7 +73,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 18px;
+      padding: 0 14px;
       background: rgba(2, 8, 23, 0.9);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
@@ -86,8 +86,8 @@
     }
 
     .menu-toggle {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: 14px;
       border: 1px solid var(--border);
       background: rgba(7, 17, 31, 0.92);
@@ -156,26 +156,26 @@
     .brand-text {
       line-height: 1;
       text-align: left;
-      width: 160px;
+      width: 165px;
       flex-shrink: 0;
     }
 
     .brand-text .top {
       display: block;
       width: 100%;
-      font-size: 1.18rem;
+      font-size: 1.08rem;
       font-weight: 800;
-      letter-spacing: 1.6px;
+      letter-spacing: 2px;
       color: var(--text);
     }
 
     .brand-text .bottom {
       display: block;
       width: 100%;
-      margin-top: 5px;
-      font-size: 0.56rem;
+      margin-top: 7px;
+      font-size: 0.54rem;
       font-weight: 700;
-      letter-spacing: 6px;
+      letter-spacing: 6.7px;
       color: var(--accent);
       white-space: nowrap;
     }
@@ -290,7 +290,7 @@
     }
 
     .content {
-      padding: 18px;
+      padding: 10px 4px 18px;
       transition: margin-left 0.3s ease, width 0.3s ease;
       width: 100%;
     }
@@ -308,7 +308,7 @@
 
     .hero-card {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.94fr 1.06fr;
       min-height: 400px;
       background: rgba(4, 15, 30, 0.88);
       border: 1px solid var(--border);
@@ -401,6 +401,9 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      border: none;
+      outline: none;
+      box-shadow: none;
       opacity: 0;
       animation: fadeInHeroImage 1.2s ease-out forwards;
     }
@@ -468,6 +471,12 @@
       font-weight: 600;
     }
 
+    .loading-message {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
     @media (max-width: 1200px) {
       .hero-card {
         grid-template-columns: 1fr;
@@ -499,24 +508,24 @@
       }
 
       .brand img {
-        height: 44px;
+        height: 48px;
       }
 
       .brand-text {
-        width: 150px;
+        width: 160px;
       }
 
       .brand-text .top {
-        font-size: 1rem;
+        font-size: 1.02rem;
       }
 
       .brand-text .bottom {
-        font-size: 0.5rem;
-        letter-spacing: 5.8px;
+        font-size: 0.52rem;
+        letter-spacing: 6.2px;
       }
 
       .content {
-        padding: 14px;
+        padding: 10px 8px 18px;
       }
 
       .services-grid {
@@ -546,8 +555,8 @@
       }
 
       .menu-toggle {
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
       }
 
       .hero-card {
@@ -589,11 +598,11 @@
         </button>
       </div>
 
-      <a href="index.html" class="brand" data-track="brand_logo_click">
-        <img id="brandLogo" src="Images/Logo.png" alt="Zenyte Technologies Logo">
+      <a href="index.html" class="brand">
+        <img src="Images/Logo.png" alt="Zenyte Technologies Logo">
         <div class="brand-text">
-          <span class="top" id="brandTop">ZENYTE</span>
-          <span class="bottom" id="brandBottom">TECHNOLOGIES</span>
+          <span class="top">ZENYTE</span>
+          <span class="bottom">TECHNOLOGIES</span>
         </div>
       </a>
     </header>
@@ -605,7 +614,42 @@
           <button class="close-btn" id="closeMenu" aria-label="Close menu">✕</button>
         </div>
 
-        <nav class="menu-group" id="navMenu"></nav>
+        <nav class="menu-group">
+          <a href="index.html" class="menu-item active">
+            <span class="menu-icon">⌂</span>
+            <span class="menu-label">Home</span>
+          </a>
+
+          <a href="network.html" class="menu-item">
+            <span class="menu-icon">⛶</span>
+            <span class="menu-label">Network</span>
+          </a>
+
+          <a href="enterprise-setup.html" class="menu-item">
+            <span class="menu-icon">▦</span>
+            <span class="menu-label">Enterprise Set-up</span>
+          </a>
+
+          <a href="cloud-services.html" class="menu-item">
+            <span class="menu-icon">☁</span>
+            <span class="menu-label">Cloud Services</span>
+          </a>
+
+          <a href="cyber-security.html" class="menu-item">
+            <span class="menu-icon">🛡</span>
+            <span class="menu-label">Cyber Security</span>
+          </a>
+
+          <a href="computer-repair.html" class="menu-item">
+            <span class="menu-icon">🛠</span>
+            <span class="menu-label">Computer Repair</span>
+          </a>
+
+          <a href="infrastructure-consulting.html" class="menu-item">
+            <span class="menu-icon">▣</span>
+            <span class="menu-label">Infrastructure Consulting</span>
+          </a>
+        </nav>
       </div>
     </aside>
 
@@ -615,169 +659,96 @@
       <div class="dashboard">
         <section class="hero-card">
           <div class="hero-copy">
-            <span class="eyebrow" id="heroEyebrow"></span>
+            <span class="eyebrow">Welcome to Zenyte Technologies</span>
 
-            <h1 id="heroTitle"></h1>
+            <h1 id="heroTitle">
+              Technology Solutions<br>
+              That <span class="accent">Power</span> Your Business
+            </h1>
 
-            <p id="heroDescription"></p>
+            <p id="heroDescription">
+              We deliver reliable IT services designed to enhance performance,
+              strengthen security, and drive growth.
+            </p>
 
             <div class="hero-actions">
-              <button class="primary-btn" id="heroButton"></button>
+              <button class="primary-btn" id="heroButton" onclick="location.href='network.html'">
+                <span id="heroButtonText">Explore Services</span>
+                <span>→</span>
+              </button>
             </div>
+
+            <div class="loading-message" id="backendStatus"></div>
           </div>
 
           <div class="hero-visual" id="heroVisual" aria-hidden="true"></div>
         </section>
 
-        <section class="services-grid" id="servicesGrid"></section>
+        <section class="services-grid">
+          <a href="network.html" class="service-card">
+            <div class="icon">⛶</div>
+            <h3>Network</h3>
+            <p>Reliable network solutions that keep your business connected.</p>
+            <span class="learn-more">Learn More <span>→</span></span>
+          </a>
+
+          <a href="enterprise-setup.html" class="service-card">
+            <div class="icon">▦</div>
+            <h3>Enterprise Set-up</h3>
+            <p>Complete enterprise IT setup tailored to your business needs.</p>
+            <span class="learn-more">Learn More <span>→</span></span>
+          </a>
+
+          <a href="cloud-services.html" class="service-card">
+            <div class="icon">☁</div>
+            <h3>Cloud Services</h3>
+            <p>Scalable cloud solutions for flexibility, security, and growth.</p>
+            <span class="learn-more">Learn More <span>→</span></span>
+          </a>
+
+          <a href="cyber-security.html" class="service-card">
+            <div class="icon">🛡</div>
+            <h3>Cyber Security</h3>
+            <p>Advanced security measures to protect what matters most.</p>
+            <span class="learn-more">Learn More <span>→</span></span>
+          </a>
+
+          <a href="computer-repair.html" class="service-card">
+            <div class="icon">🛠</div>
+            <h3>Computer Repair</h3>
+            <p>Fast and reliable repair services for all your devices.</p>
+            <span class="learn-more">Learn More <span>→</span></span>
+          </a>
+
+          <a href="infrastructure-consulting.html" class="service-card">
+            <div class="icon">▣</div>
+            <h3>Infrastructure Consulting</h3>
+            <p>Expert guidance to build a strong and efficient IT foundation.</p>
+            <span class="learn-more">Learn More <span>→</span></span>
+          </a>
+        </section>
       </div>
     </main>
   </div>
 
   <script>
-    const SITE_CONTENT = {
-      global: {
-        brandTop: "ZENYTE",
-        brandBottom: "TECHNOLOGIES",
-        logo: "Images/Logo.png"
-      },
-      hero: {
-        eyebrow: "Welcome to Zenyte Technologies",
-        title: 'Technology Solutions<br>That <span class="accent">Power</span> Your Business',
-        description: "We deliver reliable IT services designed to enhance performance, strengthen security, and drive growth.",
-        buttonLabel: "Explore Our Services",
-        buttonUrl: "cloud-services.html",
-        image: "Images/index-hero.jpg"
-      },
-      navigation: [
-        { label: "Home", url: "index.html", icon: "⌂", active: true },
-        { label: "Network", url: "network.html", icon: "⛶", active: false },
-        { label: "Enterprise Set-up", url: "enterprise-setup.html", icon: "▦", active: false },
-        { label: "Cloud Services", url: "cloud-services.html", icon: "☁", active: false },
-        { label: "Cyber Security", url: "cyber-security.html", icon: "🛡", active: false },
-        { label: "Computer Repair", url: "computer-repair.html", icon: "🛠", active: false },
-        { label: "Infrastructure Consulting", url: "infrastructure-consulting.html", icon: "▣", active: false }
-      ],
-      services: [
-        {
-          title: "Network",
-          description: "Reliable network solutions that keep your business connected.",
-          icon: "⛶",
-          url: "network.html"
-        },
-        {
-          title: "Enterprise Set-up",
-          description: "Complete enterprise IT setup tailored to your business needs.",
-          icon: "▦",
-          url: "enterprise-setup.html"
-        },
-        {
-          title: "Cloud Services",
-          description: "Scalable cloud solutions for flexibility, security, and growth.",
-          icon: "☁",
-          url: "cloud-services.html"
-        },
-        {
-          title: "Cyber Security",
-          description: "Advanced security measures to protect what matters most.",
-          icon: "🛡",
-          url: "cyber-security.html"
-        },
-        {
-          title: "Computer Repair",
-          description: "Fast and reliable repair services for all your devices.",
-          icon: "🛠",
-          url: "computer-repair.html"
-        },
-        {
-          title: "Infrastructure Consulting",
-          description: "Expert guidance to build a strong and efficient IT foundation.",
-          icon: "▣",
-          url: "infrastructure-consulting.html"
-        }
-      ]
-    };
+    const DIRECTUS_URL = "http://localhost:8055";
+    const PAGE_ENDPOINT = `${DIRECTUS_URL}/items/Pages?filter[slug][_eq]=Home&limit=1`;
 
     const app = document.getElementById("app");
     const menuToggle = document.getElementById("menuToggle");
     const closeMenu = document.getElementById("closeMenu");
     const overlay = document.getElementById("overlay");
-    const navMenu = document.getElementById("navMenu");
-    const servicesGrid = document.getElementById("servicesGrid");
-
-    function trackEvent(eventName, eventData = {}) {
-      console.log("Track event:", eventName, eventData);
-
-      if (typeof window.gtag === "function") {
-        window.gtag("event", eventName, eventData);
-      }
-    }
-
-    function renderGlobalContent() {
-      document.getElementById("brandTop").textContent = SITE_CONTENT.global.brandTop;
-      document.getElementById("brandBottom").textContent = SITE_CONTENT.global.brandBottom;
-      document.getElementById("brandLogo").src = SITE_CONTENT.global.logo;
-    }
-
-    function renderHero() {
-      document.getElementById("heroEyebrow").textContent = SITE_CONTENT.hero.eyebrow;
-      document.getElementById("heroTitle").innerHTML = SITE_CONTENT.hero.title;
-      document.getElementById("heroDescription").textContent = SITE_CONTENT.hero.description;
-
-      const heroButton = document.getElementById("heroButton");
-      heroButton.innerHTML = `<span>${SITE_CONTENT.hero.buttonLabel}</span><span>→</span>`;
-      heroButton.addEventListener("click", () => {
-        trackEvent("hero_button_click", {
-          label: SITE_CONTENT.hero.buttonLabel,
-          destination: SITE_CONTENT.hero.buttonUrl
-        });
-        window.location.href = SITE_CONTENT.hero.buttonUrl;
-      });
-
-      document.getElementById("heroVisual").style.background =
-        `linear-gradient(rgba(3, 12, 26, 0.08), rgba(3, 12, 26, 0.16)), url("${SITE_CONTENT.hero.image}") center / cover no-repeat`;
-    }
-
-    function renderNavigation() {
-      navMenu.innerHTML = SITE_CONTENT.navigation.map(item => `
-        <a href="${item.url}" class="menu-item ${item.active ? "active" : ""}" data-nav-label="${item.label}">
-          <span class="menu-icon">${item.icon}</span>
-          <span class="menu-label">${item.label}</span>
-        </a>
-      `).join("");
-
-      navMenu.querySelectorAll(".menu-item").forEach(item => {
-        item.addEventListener("click", () => {
-          trackEvent("nav_click", {
-            label: item.dataset.navLabel
-          });
-        });
-      });
-    }
-
-    function renderServices() {
-      servicesGrid.innerHTML = SITE_CONTENT.services.map(service => `
-        <a href="${service.url}" class="service-card" data-service-title="${service.title}">
-          <div class="icon">${service.icon}</div>
-          <h3>${service.title}</h3>
-          <p>${service.description}</p>
-          <span class="learn-more">Learn More <span>→</span></span>
-        </a>
-      `).join("");
-
-      servicesGrid.querySelectorAll(".service-card").forEach(card => {
-        card.addEventListener("click", () => {
-          trackEvent("service_card_click", {
-            label: card.dataset.serviceTitle
-          });
-        });
-      });
-    }
+    const heroTitle = document.getElementById("heroTitle");
+    const heroDescription = document.getElementById("heroDescription");
+    const heroButton = document.getElementById("heroButton");
+    const heroButtonText = document.getElementById("heroButtonText");
+    const heroVisual = document.getElementById("heroVisual");
+    const backendStatus = document.getElementById("backendStatus");
 
     function openMenu() {
       app.classList.add("menu-open");
       menuToggle.setAttribute("aria-expanded", "true");
-      trackEvent("menu_open");
     }
 
     function closeSidebar() {
@@ -793,26 +764,62 @@
       }
     }
 
-    function initPageViewTracking() {
-      trackEvent("page_view", {
-        page: "home"
-      });
+    function formatHeroTitle(title) {
+      if (!title) {
+        return 'Technology Solutions<br>That <span class="accent">Power</span> Your Business';
+      }
+
+      return title.replace("Power", '<span class="accent">Power</span>');
     }
 
-    function initTrackedLinks() {
-      document.querySelectorAll("[data-track]").forEach(link => {
-        link.addEventListener("click", () => {
-          trackEvent(link.dataset.track);
-        });
-      });
+    function setHeroImage(fileId) {
+      if (!fileId) {
+        return;
+      }
+
+      const imageUrl = `${DIRECTUS_URL}/assets/${fileId}`;
+
+      heroVisual.style.background =
+        `linear-gradient(rgba(3, 12, 26, 0.08), rgba(3, 12, 26, 0.16)), url("${imageUrl}") center / cover no-repeat`;
+
+      document.body.style.background =
+        `linear-gradient(rgba(2, 8, 23, 0.95), rgba(2, 8, 23, 0.97)), url("${imageUrl}") center / cover no-repeat`;
     }
 
-    renderGlobalContent();
-    renderHero();
-    renderNavigation();
-    renderServices();
-    initPageViewTracking();
-    initTrackedLinks();
+    async function loadHomeContent() {
+      try {
+        const response = await fetch(PAGE_ENDPOINT);
+
+        if (!response.ok) {
+          throw new Error(`Directus response error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        const page = result.data && result.data.length ? result.data[0] : null;
+
+        if (!page) {
+          backendStatus.textContent = "No backend content found. Showing fallback content.";
+          return;
+        }
+
+        document.title = page.title || "Zenyte Technologies";
+
+        heroTitle.innerHTML = formatHeroTitle(page.hero_title);
+        heroDescription.textContent = page.hero_description || heroDescription.textContent;
+        heroButtonText.textContent = page.button_label || "Explore Services";
+
+        heroButton.onclick = function() {
+          location.href = page.button_url || "network.html";
+        };
+
+        setHeroImage(page.hero_image);
+
+        backendStatus.textContent = "";
+      } catch (error) {
+        console.warn("Backend content could not be loaded:", error);
+        backendStatus.textContent = "Backend unavailable. Showing fallback content.";
+      }
+    }
 
     menuToggle.addEventListener("click", toggleMenu);
     closeMenu.addEventListener("click", closeSidebar);
@@ -829,6 +836,8 @@
         closeSidebar();
       }
     });
+
+    loadHomeContent();
   </script>
 </body>
 </html>
