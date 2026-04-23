@@ -19,10 +19,10 @@
       --text: #ffffff;
       --muted: #cbd5e1;
       --soft: #94a3b8;
-      --sidebar-width: 300px;
-      --topbar-height: 88px;
-      --radius: 20px;
-      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --sidebar-width: 280px;
+      --topbar-height: 84px;
+      --radius: 18px;
+      --shadow: 0 16px 32px rgba(0, 0, 0, 0.32);
     }
 
     html,
@@ -73,7 +73,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 0 18px;
       background: rgba(2, 8, 23, 0.9);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
@@ -86,8 +86,8 @@
     }
 
     .menu-toggle {
-      width: 54px;
-      height: 54px;
+      width: 50px;
+      height: 50px;
       border-radius: 14px;
       border: 1px solid var(--border);
       background: rgba(7, 17, 31, 0.92);
@@ -106,7 +106,7 @@
     }
 
     .hamburger {
-      width: 20px;
+      width: 18px;
       height: 14px;
       position: relative;
       display: block;
@@ -143,12 +143,12 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       margin-left: auto;
     }
 
     .brand img {
-      height: 58px;
+      height: 52px;
       width: auto;
       flex-shrink: 0;
     }
@@ -156,26 +156,26 @@
     .brand-text {
       line-height: 1;
       text-align: left;
-      width: 190px;
+      width: 160px;
       flex-shrink: 0;
     }
 
     .brand-text .top {
       display: block;
       width: 100%;
-      font-size: 1.34rem;
+      font-size: 1.18rem;
       font-weight: 800;
-      letter-spacing: 2px;
+      letter-spacing: 1.6px;
       color: var(--text);
     }
 
     .brand-text .bottom {
       display: block;
       width: 100%;
-      margin-top: 7px;
-      font-size: 0.63rem;
+      margin-top: 5px;
+      font-size: 0.56rem;
       font-weight: 700;
-      letter-spacing: 7.9px;
+      letter-spacing: 6px;
       color: var(--accent);
       white-space: nowrap;
     }
@@ -220,14 +220,14 @@
     }
 
     .close-btn {
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       border-radius: 14px;
       border: 1px solid var(--border);
       background: rgba(7, 17, 31, 0.92);
       color: var(--accent);
       cursor: pointer;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .menu-group {
@@ -239,7 +239,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      min-height: 62px;
+      min-height: 58px;
       padding: 0 16px;
       border-radius: 14px;
       background: rgba(8, 22, 40, 0.45);
@@ -261,16 +261,16 @@
     }
 
     .menu-icon {
-      width: 30px;
+      width: 28px;
       text-align: center;
       color: var(--accent);
-      font-size: 1.35rem;
+      font-size: 1.2rem;
       line-height: 1;
       flex-shrink: 0;
     }
 
     .menu-label {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 600;
     }
 
@@ -290,7 +290,7 @@
     }
 
     .content {
-      padding: 18px 18px 20px;
+      padding: 18px;
       transition: margin-left 0.3s ease, width 0.3s ease;
       width: 100%;
     }
@@ -303,13 +303,13 @@
     .dashboard {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 16px;
     }
 
     .hero-card {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 460px;
+      min-height: 400px;
       background: rgba(4, 15, 30, 0.88);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -318,7 +318,7 @@
     }
 
     .hero-copy {
-      padding: 42px 40px;
+      padding: 34px 32px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -328,19 +328,19 @@
     .eyebrow {
       display: inline-block;
       color: var(--accent);
-      font-size: 0.86rem;
+      font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .hero-copy h1 {
-      margin: 0 0 22px;
-      font-size: 3.8rem;
-      line-height: 1.18;
+      margin: 0 0 18px;
+      font-size: 3.1rem;
+      line-height: 1.1;
       font-weight: 700;
-      max-width: 700px;
+      max-width: 620px;
     }
 
     .hero-copy h1 .accent {
@@ -348,11 +348,11 @@
     }
 
     .hero-copy p {
-      margin: 0 0 32px;
+      margin: 0 0 24px;
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 1.08rem;
-      max-width: 640px;
+      line-height: 1.6;
+      font-size: 1rem;
+      max-width: 560px;
     }
 
     .hero-actions {
@@ -366,8 +366,8 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      min-width: 235px;
-      padding: 16px 24px;
+      min-width: 210px;
+      padding: 14px 20px;
       border-radius: 14px;
       border: none;
       background: linear-gradient(90deg, #7ed4e6 0%, var(--accent) 100%);
@@ -401,9 +401,6 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      border: none;
-      outline: none;
-      box-shadow: none;
       opacity: 0;
       animation: fadeInHeroImage 1.2s ease-out forwards;
     }
@@ -418,68 +415,57 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .service-card {
-      min-height: 300px;
+      min-height: 250px;
       background: rgba(4, 15, 30, 0.9);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 16px;
       box-shadow: var(--shadow);
-      padding: 26px 22px;
+      padding: 22px 18px;
       display: flex;
       flex-direction: column;
     }
 
     .service-card .icon {
-      width: 60px;
-      height: 60px;
+      width: 52px;
+      height: 52px;
       border-radius: 999px;
       border: 1px solid rgba(150, 237, 255, 0.24);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       color: var(--accent);
-      font-size: 1.7rem;
-      margin-bottom: 22px;
+      font-size: 1.45rem;
+      margin-bottom: 18px;
       flex-shrink: 0;
     }
 
     .service-card h3 {
-      margin: 0 0 14px;
-      font-size: 1.15rem;
+      margin: 0 0 10px;
+      font-size: 1.05rem;
       line-height: 1.35;
       font-weight: 700;
-      min-height: 58px;
     }
 
     .service-card p {
-      margin: 0 0 28px;
+      margin: 0 0 20px;
       color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.75;
+      font-size: 0.94rem;
+      line-height: 1.6;
       flex-grow: 1;
     }
 
     .service-card .learn-more {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       color: var(--accent);
-      font-size: 0.98rem;
+      font-size: 0.94rem;
       font-weight: 600;
-    }
-
-    @media (max-width: 1500px) {
-      .services-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .hero-copy h1 {
-        font-size: 3.2rem;
-      }
     }
 
     @media (max-width: 1200px) {
@@ -513,20 +499,20 @@
       }
 
       .brand img {
-        height: 48px;
+        height: 44px;
       }
 
       .brand-text {
-        width: 165px;
+        width: 150px;
       }
 
       .brand-text .top {
-        font-size: 1.08rem;
+        font-size: 1rem;
       }
 
       .brand-text .bottom {
-        font-size: 0.57rem;
-        letter-spacing: 6.7px;
+        font-size: 0.5rem;
+        letter-spacing: 5.8px;
       }
 
       .content {
@@ -538,11 +524,11 @@
       }
 
       .hero-copy {
-        padding: 30px 24px;
+        padding: 26px 22px;
       }
 
       .hero-copy h1 {
-        font-size: 2.7rem;
+        font-size: 2.35rem;
       }
 
       .hero-copy p {
@@ -569,7 +555,7 @@
       }
 
       .hero-copy h1 {
-        font-size: 2.15rem;
+        font-size: 1.95rem;
       }
 
       .hero-actions {
@@ -579,7 +565,7 @@
 
       .primary-btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 240px;
       }
 
       .services-grid {
@@ -603,11 +589,11 @@
         </button>
       </div>
 
-      <a href="index.html" class="brand">
-        <img src="Images/Logo.png" alt="Zenyte Technologies Logo">
+      <a href="index.html" class="brand" data-track="brand_logo_click">
+        <img id="brandLogo" src="Images/Logo.png" alt="Zenyte Technologies Logo">
         <div class="brand-text">
-          <span class="top">ZENYTE</span>
-          <span class="bottom">TECHNOLOGIES</span>
+          <span class="top" id="brandTop">ZENYTE</span>
+          <span class="bottom" id="brandBottom">TECHNOLOGIES</span>
         </div>
       </a>
     </header>
@@ -619,42 +605,7 @@
           <button class="close-btn" id="closeMenu" aria-label="Close menu">✕</button>
         </div>
 
-        <nav class="menu-group">
-          <a href="index.html" class="menu-item active">
-            <span class="menu-icon">⌂</span>
-            <span class="menu-label">Home</span>
-          </a>
-
-          <a href="network.html" class="menu-item">
-            <span class="menu-icon">⛶</span>
-            <span class="menu-label">Network</span>
-          </a>
-
-          <a href="enterprise-setup.html" class="menu-item">
-            <span class="menu-icon">▦</span>
-            <span class="menu-label">Enterprise Set-up</span>
-          </a>
-
-          <a href="cloud-services.html" class="menu-item">
-            <span class="menu-icon">☁</span>
-            <span class="menu-label">Cloud Services</span>
-          </a>
-
-          <a href="cyber-security.html" class="menu-item">
-            <span class="menu-icon">🛡</span>
-            <span class="menu-label">Cyber Security</span>
-          </a>
-
-          <a href="computer-repair.html" class="menu-item">
-            <span class="menu-icon">🛠</span>
-            <span class="menu-label">Computer Repair</span>
-          </a>
-
-          <a href="infrastructure-consulting.html" class="menu-item">
-            <span class="menu-icon">▣</span>
-            <span class="menu-label">Infrastructure Consulting</span>
-          </a>
-        </nav>
+        <nav class="menu-group" id="navMenu"></nav>
       </div>
     </aside>
 
@@ -664,111 +615,216 @@
       <div class="dashboard">
         <section class="hero-card">
           <div class="hero-copy">
-            <span class="eyebrow">Welcome to Zenyte Technologies</span>
+            <span class="eyebrow" id="heroEyebrow"></span>
 
-            <h1>
-              Technology Solutions<br>
-              That <span class="accent">Power</span> Your Business
-            </h1>
+            <h1 id="heroTitle"></h1>
 
-            <p>
-              We deliver reliable IT services designed to enhance performance,
-              strengthen security, and drive growth.
-            </p>
+            <p id="heroDescription"></p>
 
             <div class="hero-actions">
-              <button class="primary-btn" onclick="location.href='cloud-services.html'">
-                <span>Explore Our Services</span>
-                <span>→</span>
-              </button>
+              <button class="primary-btn" id="heroButton"></button>
             </div>
           </div>
 
-          <div class="hero-visual" aria-hidden="true"></div>
+          <div class="hero-visual" id="heroVisual" aria-hidden="true"></div>
         </section>
 
-        <section class="services-grid">
-          <a href="network.html" class="service-card">
-            <div class="icon">⛶</div>
-            <h3>Network</h3>
-            <p>Reliable network solutions that keep your business connected.</p>
-            <span class="learn-more">Learn More <span></span></span>
-          </a>
-
-          <a href="enterprise-setup.html" class="service-card">
-            <div class="icon">▦</div>
-            <h3>Enterprise Set-up</h3>
-            <p>Complete enterprise IT setup tailored to your business needs.</p>
-            <span class="learn-more">Learn More <span></span></span>
-          </a>
-
-          <a href="cloud-services.html" class="service-card">
-            <div class="icon">☁</div>
-            <h3>Cloud Services</h3>
-            <p>Scalable cloud solutions for flexibility, security, and growth.</p>
-            <span class="learn-more">Learn More <span></span></span>
-          </a>
-
-          <a href="cyber-security.html" class="service-card">
-            <div class="icon">🛡</div>
-            <h3>Cyber Security</h3>
-            <p>Advanced security measures to protect what matters most.</p>
-            <span class="learn-more">Learn More <span></span></span>
-          </a>
-
-          <a href="computer-repair.html" class="service-card">
-            <div class="icon">🛠</div>
-            <h3>Computer Repair</h3>
-            <p>Fast and reliable repair services for all your devices.</p>
-            <span class="learn-more">Learn More <span></span></span>
-          </a>
-
-          <a href="infrastructure-consulting.html" class="service-card">
-            <div class="icon">▣</div>
-            <h3>Infrastructure Consulting</h3>
-            <p>Expert guidance to build a strong and efficient IT foundation.</p>
-            <span class="learn-more">Learn More <span></span></span>
-          </a>
-        </section>
+        <section class="services-grid" id="servicesGrid"></section>
       </div>
     </main>
   </div>
 
   <script>
-    const app = document.getElementById('app');
-    const menuToggle = document.getElementById('menuToggle');
-    const closeMenu = document.getElementById('closeMenu');
-    const overlay = document.getElementById('overlay');
+    const SITE_CONTENT = {
+      global: {
+        brandTop: "ZENYTE",
+        brandBottom: "TECHNOLOGIES",
+        logo: "Images/Logo.png"
+      },
+      hero: {
+        eyebrow: "Welcome to Zenyte Technologies",
+        title: 'Technology Solutions<br>That <span class="accent">Power</span> Your Business',
+        description: "We deliver reliable IT services designed to enhance performance, strengthen security, and drive growth.",
+        buttonLabel: "Explore Our Services",
+        buttonUrl: "cloud-services.html",
+        image: "Images/index-hero.jpg"
+      },
+      navigation: [
+        { label: "Home", url: "index.html", icon: "⌂", active: true },
+        { label: "Network", url: "network.html", icon: "⛶", active: false },
+        { label: "Enterprise Set-up", url: "enterprise-setup.html", icon: "▦", active: false },
+        { label: "Cloud Services", url: "cloud-services.html", icon: "☁", active: false },
+        { label: "Cyber Security", url: "cyber-security.html", icon: "🛡", active: false },
+        { label: "Computer Repair", url: "computer-repair.html", icon: "🛠", active: false },
+        { label: "Infrastructure Consulting", url: "infrastructure-consulting.html", icon: "▣", active: false }
+      ],
+      services: [
+        {
+          title: "Network",
+          description: "Reliable network solutions that keep your business connected.",
+          icon: "⛶",
+          url: "network.html"
+        },
+        {
+          title: "Enterprise Set-up",
+          description: "Complete enterprise IT setup tailored to your business needs.",
+          icon: "▦",
+          url: "enterprise-setup.html"
+        },
+        {
+          title: "Cloud Services",
+          description: "Scalable cloud solutions for flexibility, security, and growth.",
+          icon: "☁",
+          url: "cloud-services.html"
+        },
+        {
+          title: "Cyber Security",
+          description: "Advanced security measures to protect what matters most.",
+          icon: "🛡",
+          url: "cyber-security.html"
+        },
+        {
+          title: "Computer Repair",
+          description: "Fast and reliable repair services for all your devices.",
+          icon: "🛠",
+          url: "computer-repair.html"
+        },
+        {
+          title: "Infrastructure Consulting",
+          description: "Expert guidance to build a strong and efficient IT foundation.",
+          icon: "▣",
+          url: "infrastructure-consulting.html"
+        }
+      ]
+    };
+
+    const app = document.getElementById("app");
+    const menuToggle = document.getElementById("menuToggle");
+    const closeMenu = document.getElementById("closeMenu");
+    const overlay = document.getElementById("overlay");
+    const navMenu = document.getElementById("navMenu");
+    const servicesGrid = document.getElementById("servicesGrid");
+
+    function trackEvent(eventName, eventData = {}) {
+      console.log("Track event:", eventName, eventData);
+
+      if (typeof window.gtag === "function") {
+        window.gtag("event", eventName, eventData);
+      }
+    }
+
+    function renderGlobalContent() {
+      document.getElementById("brandTop").textContent = SITE_CONTENT.global.brandTop;
+      document.getElementById("brandBottom").textContent = SITE_CONTENT.global.brandBottom;
+      document.getElementById("brandLogo").src = SITE_CONTENT.global.logo;
+    }
+
+    function renderHero() {
+      document.getElementById("heroEyebrow").textContent = SITE_CONTENT.hero.eyebrow;
+      document.getElementById("heroTitle").innerHTML = SITE_CONTENT.hero.title;
+      document.getElementById("heroDescription").textContent = SITE_CONTENT.hero.description;
+
+      const heroButton = document.getElementById("heroButton");
+      heroButton.innerHTML = `<span>${SITE_CONTENT.hero.buttonLabel}</span><span>→</span>`;
+      heroButton.addEventListener("click", () => {
+        trackEvent("hero_button_click", {
+          label: SITE_CONTENT.hero.buttonLabel,
+          destination: SITE_CONTENT.hero.buttonUrl
+        });
+        window.location.href = SITE_CONTENT.hero.buttonUrl;
+      });
+
+      document.getElementById("heroVisual").style.background =
+        `linear-gradient(rgba(3, 12, 26, 0.08), rgba(3, 12, 26, 0.16)), url("${SITE_CONTENT.hero.image}") center / cover no-repeat`;
+    }
+
+    function renderNavigation() {
+      navMenu.innerHTML = SITE_CONTENT.navigation.map(item => `
+        <a href="${item.url}" class="menu-item ${item.active ? "active" : ""}" data-nav-label="${item.label}">
+          <span class="menu-icon">${item.icon}</span>
+          <span class="menu-label">${item.label}</span>
+        </a>
+      `).join("");
+
+      navMenu.querySelectorAll(".menu-item").forEach(item => {
+        item.addEventListener("click", () => {
+          trackEvent("nav_click", {
+            label: item.dataset.navLabel
+          });
+        });
+      });
+    }
+
+    function renderServices() {
+      servicesGrid.innerHTML = SITE_CONTENT.services.map(service => `
+        <a href="${service.url}" class="service-card" data-service-title="${service.title}">
+          <div class="icon">${service.icon}</div>
+          <h3>${service.title}</h3>
+          <p>${service.description}</p>
+          <span class="learn-more">Learn More <span>→</span></span>
+        </a>
+      `).join("");
+
+      servicesGrid.querySelectorAll(".service-card").forEach(card => {
+        card.addEventListener("click", () => {
+          trackEvent("service_card_click", {
+            label: card.dataset.serviceTitle
+          });
+        });
+      });
+    }
 
     function openMenu() {
-      app.classList.add('menu-open');
-      menuToggle.setAttribute('aria-expanded', 'true');
+      app.classList.add("menu-open");
+      menuToggle.setAttribute("aria-expanded", "true");
+      trackEvent("menu_open");
     }
 
     function closeSidebar() {
-      app.classList.remove('menu-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
+      app.classList.remove("menu-open");
+      menuToggle.setAttribute("aria-expanded", "false");
     }
 
     function toggleMenu() {
-      if (app.classList.contains('menu-open')) {
+      if (app.classList.contains("menu-open")) {
         closeSidebar();
       } else {
         openMenu();
       }
     }
 
-    menuToggle.addEventListener('click', toggleMenu);
-    closeMenu.addEventListener('click', closeSidebar);
-    overlay.addEventListener('click', closeSidebar);
+    function initPageViewTracking() {
+      trackEvent("page_view", {
+        page: "home"
+      });
+    }
 
-    window.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
+    function initTrackedLinks() {
+      document.querySelectorAll("[data-track]").forEach(link => {
+        link.addEventListener("click", () => {
+          trackEvent(link.dataset.track);
+        });
+      });
+    }
+
+    renderGlobalContent();
+    renderHero();
+    renderNavigation();
+    renderServices();
+    initPageViewTracking();
+    initTrackedLinks();
+
+    menuToggle.addEventListener("click", toggleMenu);
+    closeMenu.addEventListener("click", closeSidebar);
+    overlay.addEventListener("click", closeSidebar);
+
+    window.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
         closeSidebar();
       }
     });
 
-    window.addEventListener('resize', function() {
+    window.addEventListener("resize", function() {
       if (window.innerWidth <= 980) {
         closeSidebar();
       }
